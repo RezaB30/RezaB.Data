@@ -11,7 +11,7 @@
     <AssemblyName>RezaB.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-	<PackageDescription>Data Utilities and Formatting</PackageDescription>
+    <PackageDescription>Data Utilities and Formatting</PackageDescription>
     <RepositoryUrl>https://github.com/masteriss/RezaB.Data</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
@@ -44,10 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArraySplitter.cs" />
+    <Compile Include="Files\CSVGenerator.cs" />
     <Compile Include="Formating\RateLimitFormatter.cs" />
     <Compile Include="Formating\RateLimitParser.cs" />
     <Compile Include="Localization\LocalizedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\IValidatable.cs" />
+    <Compile Include="Validation\ValidatableBase.cs" />
+    <Compile Include="Validation\ValidationError.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
