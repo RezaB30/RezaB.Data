@@ -11,23 +11,24 @@ namespace RezaB.Data.Caching
     {
         private string CacheName { get; set; }
         private Func<T> onReloadDelegate;
-        private CacheItemPolicy policy;
+        private TimeSpan CacheDuration { get; set; }
 
-        public CachedObject(string cacheName, Func<T> onReload, CacheItemPolicy cachePolicy)
+        public CachedObject(string cacheName, Func<T> onReload, TimeSpan cacheDuration)
         {
-            if (string.IsNullOrWhiteSpace(cacheName) || onReload == null || cachePolicy == null)
+            if (string.IsNullOrWhiteSpace(cacheName) || onReload == null || cacheDuration == null)
             {
-                throw new ArgumentNullException("Non of 'cacheName', 'onReload' and 'cachePolicy' could not be null.");
+                throw new ArgumentNullException("Non of 'cacheName', 'onReload' and 'cacheDuration' could not be null.");
             }
             CacheName = cacheName;
             onReloadDelegate = onReload;
-            policy = cachePolicy;
+            CacheDuration = cacheDuration;
         }
         
         public T Get()
         {
-            var item = MemoryCache.Default.Get(CacheName) as T;
-            return item ?? MemoryCache.Default.AddOrGetExisting(CacheName, onReloadDelegate(), policy) as T;
+            var item = MemoryCache.Default.Get(CacheName) as T ?? onReloadDelegate();
+            MemoryCache.Default.AddOrGetExisting(CacheName, item, DateTimeOffset.Now.Add(CacheDuration));
+            return item;
         }
     }
 }
