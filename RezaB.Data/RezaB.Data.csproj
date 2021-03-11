@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArraySplitter.cs" />
+    <Compile Include="Caching\CachedObject.cs" />
     <Compile Include="Files\CSVGenerator.cs" />
     <Compile Include="Formating\RateLimitFormatter.cs" />
     <Compile Include="Formating\RateLimitParser.cs" />

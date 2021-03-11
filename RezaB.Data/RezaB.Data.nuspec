@@ -2,13 +2,13 @@
 <package >
   <metadata>
     <id>$id$</id>
-    <version>1.0.1</version>
+    <version>1.0.2-beta</version>
     <title>RezaB.Data</title>
     <authors>Reza Barzegaran</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <description>Data Utilities and Formatting</description>
-    <releaseNotes>Minor bug fixes.</releaseNotes>
+    <releaseNotes>Added caching.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Data Utilitis Formatting</tags>
     <repository type="git" url="https://github.com/masteriss/RezaB.Data" branch="master" />
